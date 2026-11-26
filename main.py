@@ -62,6 +62,7 @@ def main() -> None:
     # trailing newline.
     assert 1 <= len(TEXT) <= 280 and TEXT.strip(), "text out of bounds"
     assert TEXT.count("\n") == 1, "must be exactly two lines"
+    assert not TEXT.endswith("\n"), "no trailing newline"
     assert all(line.strip() for line in TEXT.split("\n")), "no blank line"
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
